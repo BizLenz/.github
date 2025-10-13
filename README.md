@@ -81,9 +81,13 @@ Codes were managed in GitHub, using GitHub Flow. Files that are not codes were m
 
 ### System Architecture
 
-![www_system_architecture](https://raw.githubusercontent.com/BizLenz/.github/refs/heads/main/assets/architecture/www_architecture.svg)
+#### Frontend Architecture
 
-![api_system_architecture](https://raw.githubusercontent.com/BizLenz/.github/refs/heads/main/assets/architecture/api_architecture.svg)
+<img src="https://raw.githubusercontent.com/BizLenz/.github/refs/heads/main/assets/architecture/www_architecture.svg" alt="www_architecture" width="600"/>
+
+#### Backend Architecture
+
+<img src="https://raw.githubusercontent.com/BizLenz/.github/refs/heads/main/assets/architecture/api_architecture.svg" alt="api_architecture" width="400"/>
 
 ## Frontend
 
