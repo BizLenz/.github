@@ -1,0 +1,63 @@
+---
+config:
+  layout: elk
+  theme: redux-dark
+---
+flowchart TD
+    subgraph Pages["Pages"]
+        LandingPage["Landing Page"]
+        FileManagementPage["File Management Page"]
+        DashboardPage["Dashboard Page"]
+        LoginPage["Login Page"]
+    end
+    subgraph Components["Components"]
+        UIComponents["UI Components"]
+        Sidebar["Sidebar"]
+        ReportVisualization["Report Visualization"]
+        Dashboard["Dashboard"]
+        Files["Files"]
+        Common["Common Utilities"]
+    end
+    subgraph Hooks["Hooks"]
+        UseAnalysis["use-analysis-hook"]
+        UseFileUpload["use-file-upload"]
+        UseDeleteFile["use-delete-file"]
+        UseMobile["use-mobile"]
+    end
+    subgraph subGraph3["State Management"]
+        AIModelStore["ai-model-store"]
+        AnalysisStore["analysis-store"]
+        FileStore["file-store"]
+    end
+    subgraph Server["Server"]
+        Auth["Auth"]
+        Middleware["Middleware"]
+    end
+    subgraph s1["BizLenz/www"]
+        Pages
+        Components
+        Hooks
+        Store["State Management"]
+        Server
+        subGraph3
+    end
+    User(("User")) -- interacts with --> DOM["DOM"]
+    DOM -- renders --> Pages
+    Pages --> LandingPage & FileManagementPage & DashboardPage & LoginPage
+    Pages -- composes --> Components
+    Components -- uses --> UIComponents & Sidebar & ReportVisualization & Dashboard & Files & Common
+    Hooks -- encapsulates --> UseAnalysis & UseFileUpload & UseDeleteFile & UseMobile
+    Store -- manages --> AIModelStore & AnalysisStore & FileStore
+    Server -- handles --> Auth & Middleware
+    User -- triggers --> UseFileUpload & UseDeleteFile & UseAnalysis
+    UseAnalysis -- calls --> Auth
+    UseDeleteFile -- calls --> Auth
+    AIModelStore -- updates --> Components
+    AnalysisStore -- updates --> Components
+    FileStore -- updates --> Components
+    Middleware -- enforces --> Auth
+    Auth -- manages --> UseBackendToken["UseBackendToken"]
+    UseMobile -- detects --> DOM
+    UIComponents -- built with --> RadixUI["RadixUI"]
+    UIComponents -- styled with --> TailwindCSS["TailwindCSS"]
+    Common -- includes --> Notifications["Notifications"] & Icons["Icons"]
